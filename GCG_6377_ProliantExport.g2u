@@ -1,0 +1,592 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.f_Main..Create(BaseForm)
+Gui.f_Main..Caption("Proliant Export")
+Gui.f_Main..Size(335,178)
+Gui.f_Main..MinX(0)
+Gui.f_Main..MinY(0)
+Gui.f_Main..Position(0,0)
+Gui.f_Main..AlwaysOnTop(False)
+Gui.f_Main..FontName("Tahoma")
+Gui.f_Main..FontSize(8.25)
+Gui.f_Main..ControlBox(True)
+Gui.f_Main..MaxButton(False)
+Gui.f_Main..MinButton(False)
+Gui.f_Main..MousePointer(0)
+Gui.f_Main..Moveable(True)
+Gui.f_Main..Sizeable(False)
+Gui.f_Main..ShowInTaskBar(True)
+Gui.f_Main..TitleBar(True)
+Gui.f_Main..Event(UnLoad,Unload)
+Gui.f_Main.cmdExport.Create(Button)
+Gui.f_Main.cmdExport.Enabled(True)
+Gui.f_Main.cmdExport.Visible(True)
+Gui.f_Main.cmdExport.Zorder(0)
+Gui.f_Main.cmdExport.Size(75,23)
+Gui.f_Main.cmdExport.Position(250,120)
+Gui.f_Main.cmdExport.Caption("Export")
+Gui.f_Main.cmdExport.FontName("Tahoma")
+Gui.f_Main.cmdExport.FontSize(8.25)
+Gui.f_Main.cmdExport.Event(Click,cmdExport_Click)
+Gui.f_Main.cmdCancel.Create(Button)
+Gui.f_Main.cmdCancel.Enabled(True)
+Gui.f_Main.cmdCancel.Visible(True)
+Gui.f_Main.cmdCancel.Zorder(0)
+Gui.f_Main.cmdCancel.Size(75,23)
+Gui.f_Main.cmdCancel.Position(7,120)
+Gui.f_Main.cmdCancel.Caption("Cancel")
+Gui.f_Main.cmdCancel.FontName("Tahoma")
+Gui.f_Main.cmdCancel.FontSize(8.25)
+Gui.f_Main.cmdCancel.Event(Click,cmdCancel_Click)
+Gui.f_Main.lblFileName.Create(Label,"File Name:",True,50,13,0,7,32,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblFileName.BorderStyle(0)
+Gui.f_Main.txtFileName.Create(TextBox,"",True,136,20,0,7,49,True,0,"Tahoma",8.25,,1)
+Gui.f_Main.lblFileSaveLoc.Create(Label,"File Save Location:",True,90,13,0,7,77,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblFileSaveLoc.BorderStyle(0)
+Gui.f_Main.txtFileSave.Create(TextBox,"",True,290,20,0,7,94,True,0,"Tahoma",8.25,,1)
+Gui.f_Main.cmdBrowse.Create(Button)
+Gui.f_Main.cmdBrowse.Enabled(True)
+Gui.f_Main.cmdBrowse.Visible(True)
+Gui.f_Main.cmdBrowse.Zorder(0)
+Gui.f_Main.cmdBrowse.Size(26,20)
+Gui.f_Main.cmdBrowse.Position(299,94)
+Gui.f_Main.cmdBrowse.Caption("^")
+Gui.f_Main.cmdBrowse.FontName("Tahoma")
+Gui.f_Main.cmdBrowse.FontSize(8.25)
+Gui.f_Main.cmdBrowse.Event(Click,cmdBrowse_Click)
+Gui.f_Main.lblDateRange.Create(Label,"Date Range:",True,61,13,0,7,10,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblDateRange.BorderStyle(0)
+Gui.f_Main.dtpBeg.Create(DatePicker)
+Gui.f_Main.dtpBeg.Enabled(False)
+Gui.f_Main.dtpBeg.Visible(True)
+Gui.f_Main.dtpBeg.Zorder(0)
+Gui.f_Main.dtpBeg.Size(100,20)
+Gui.f_Main.dtpBeg.Position(73,6)
+Gui.f_Main.dtpBeg.CheckBox(False)
+Gui.f_Main.dtpBeg.FontName("Tahoma")
+Gui.f_Main.dtpBeg.FontSize(8.25)
+Gui.f_Main.lblTo.Create(Label,"To",True,12,13,0,183,10,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Main.lblTo.BorderStyle(0)
+Gui.f_Main.dtpEnd.Create(DatePicker)
+Gui.f_Main.dtpEnd.Enabled(False)
+Gui.f_Main.dtpEnd.Visible(True)
+Gui.f_Main.dtpEnd.Zorder(0)
+Gui.f_Main.dtpEnd.Size(100,20)
+Gui.f_Main.dtpEnd.Position(204,6)
+Gui.f_Main.dtpEnd.CheckBox(False)
+Gui.f_Main.dtpEnd.FontName("Tahoma")
+Gui.f_Main.dtpEnd.FontSize(8.25)
+Gui.f_Comms..Create(BaseForm)
+Gui.f_Comms..Caption("Proliant Commissions Export")
+Gui.f_Comms..Size(334,164)
+Gui.f_Comms..MinX(0)
+Gui.f_Comms..MinY(0)
+Gui.f_Comms..Position(0,0)
+Gui.f_Comms..AlwaysOnTop(False)
+Gui.f_Comms..FontName("Tahoma")
+Gui.f_Comms..FontSize(8.25)
+Gui.f_Comms..ControlBox(True)
+Gui.f_Comms..MaxButton(False)
+Gui.f_Comms..MinButton(True)
+Gui.f_Comms..MousePointer(0)
+Gui.f_Comms..Moveable(True)
+Gui.f_Comms..Sizeable(False)
+Gui.f_Comms..ShowInTaskBar(True)
+Gui.f_Comms..TitleBar(True)
+Gui.f_Comms..ShowCompanyCode(False)
+Gui.f_Comms..Event(UnLoad,f_Comms_UnLoad)
+Gui.f_Comms.lblFileName.Create(Label,"File Name:",True,50,13,0,8,6,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Comms.lblFileName.BorderStyle(0)
+Gui.f_Comms.txtFileName.Create(TextBox,"",True,149,20,0,8,24,True,0,"Tahoma",8.25,,1)
+Gui.f_Comms.txtFileName.TabStop(True)
+Gui.f_Comms.txtFileName.TabIndex(1)
+Gui.f_Comms.lblFileSave.Create(Label,"File Save Location:",True,90,13,0,8,54,True,0,"Tahoma",8.25,,0,0)
+Gui.f_Comms.lblFileSave.BorderStyle(0)
+Gui.f_Comms.txtFileSave.Create(TextBox,"",True,290,20,0,8,73,True,0,"Tahoma",8.25,,1)
+Gui.f_Comms.txtFileSave.TabStop(True)
+Gui.f_Comms.txtFileSave.TabIndex(2)
+Gui.f_Comms.cmdBrowse.Create(Button)
+Gui.f_Comms.cmdBrowse.Enabled(True)
+Gui.f_Comms.cmdBrowse.Visible(True)
+Gui.f_Comms.cmdBrowse.Zorder(0)
+Gui.f_Comms.cmdBrowse.Size(25,20)
+Gui.f_Comms.cmdBrowse.Position(302,73)
+Gui.f_Comms.cmdBrowse.Caption("^")
+Gui.f_Comms.cmdBrowse.FontName("Tahoma")
+Gui.f_Comms.cmdBrowse.FontSize(8.25)
+Gui.f_Comms.cmdBrowse.Event(Click,cmdCommBrowse_Click)
+Gui.f_Comms.cmdBrowse.TabStop(True)
+Gui.f_Comms.cmdBrowse.TabIndex(3)
+Gui.f_Comms.cmdCancel.Create(Button)
+Gui.f_Comms.cmdCancel.Enabled(True)
+Gui.f_Comms.cmdCancel.Visible(True)
+Gui.f_Comms.cmdCancel.Zorder(0)
+Gui.f_Comms.cmdCancel.Size(56,23)
+Gui.f_Comms.cmdCancel.Position(6,106)
+Gui.f_Comms.cmdCancel.Caption("Cancel")
+Gui.f_Comms.cmdCancel.FontName("Tahoma")
+Gui.f_Comms.cmdCancel.FontSize(8.25)
+Gui.f_Comms.cmdCancel.Event(Click,cmdCommCancel_Click)
+Gui.f_Comms.cmdCancel.TabStop(True)
+Gui.f_Comms.cmdCancel.TabIndex(4)
+Gui.f_Comms.cmdExport.Create(Button)
+Gui.f_Comms.cmdExport.Enabled(True)
+Gui.f_Comms.cmdExport.Visible(True)
+Gui.f_Comms.cmdExport.Zorder(0)
+Gui.f_Comms.cmdExport.Size(56,23)
+Gui.f_Comms.cmdExport.Position(272,106)
+Gui.f_Comms.cmdExport.Caption("Export")
+Gui.f_Comms.cmdExport.FontName("Tahoma")
+Gui.f_Comms.cmdExport.FontSize(8.25)
+Gui.f_Comms.cmdExport.Event(Click,cmdCommExport_Click)
+Gui.f_Comms.cmdExport.TabStop(True)
+Gui.f_Comms.cmdExport.TabIndex(5)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.bError.Declare(Boolean)
+V.Global.bUnattended.Declare(Boolean)
+V.Global.sDate.Declare(String)
+V.Global.sTime.Declare(String)
+V.Global.dBegDate.Declare(Date)
+V.Global.dEndDate.Declare(Date)
+V.Global.sFQP.Declare(String)
+V.Global.sEnd.Declare(String, "N")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.dBegDate.Declare(Date)
+V.Local.dEndDate.Declare(Date)
+V.Local.sBegDate.Declare(String)
+V.Local.sEndDate.Declare(String)
+
+Function.Intrinsic.UI.UsePixels ' Allows you to use Pixels instead of Twips throughout
+
+'open a connection to the db
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN, V.Ambient.PUser, V.Ambient.PPass)
+'check to see if the script is running from transfer labor to payroll
+F.Intrinsic.Control.If(V.Caller.Hook,=,15290)
+	Function.Intrinsic.String.Left(Variable.Passed.888888,8,V.Global.sDate)
+	Function.Intrinsic.String.Mid(Variable.Passed.888888,9,6,V.Global.sTime)
+	'set beginning date range
+	V.Local.sBegDate.Set(V.Passed.BEGDATE)
+	F.Intrinsic.Date.ConvertDString(V.Local.sBegDate, "YYYYMMDD", V.Global.dBegDate)
+	Gui.f_Main.dtpBeg.Value(V.Global.dBegDate)
+	'set end date range
+	V.Local.sEndDate.Set(V.Passed.ENDDATE)
+	F.Intrinsic.Date.ConvertDString(V.Local.sEndDate, "YYYYMMDD", V.Global.dEndDate)
+	Gui.f_Main.dtpEnd.Value(V.Global.dEndDate)
+	'show the form
+	Gui.f_Main..Show
+'check to see if the script is running from sales rep commisssion- net sales only
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,16090)
+	F.Intrinsic.Control.If(V.Passed.009001,=,000564)
+		Gui.f_Comms..Show
+	F.Intrinsic.Control.Else
+		'close the db connection
+		F.ODBC.Connection!con.Close
+		'end the program
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	'set beginning date range
+	Gui.f_Main.dtpBeg.Value(V.Ambient.Date)
+	'set end date range
+	Gui.f_Main.dtpEnd.Value(V.Ambient.Date)
+	'show the form
+	Gui.f_Main..Show
+F.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.cmdBrowse_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sFileName.Declare(String)
+V.Local.sFileSaveLoc.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.f_Main!txtFileName.Text,<>,"")
+	V.Local.sFileName.Set(V.Screen.f_Main!txtFileName.Text)
+
+	F.Intrinsic.UI.ShowSaveFileDialog(V.Local.sFileName, "*.csv", V.Local.sFileSaveLoc)
+	F.Intrinsic.Control.If(V.Local.sFileSaveLoc,<>,"***CANCEL***")
+		Gui.f_Main.txtFileSave.Text(V.Local.sFileSaveLoc.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("You must enter a File Name to continue.", "Required Field")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdBrowse_Click.End
+
+Program.Sub.cmdCancel_Click.Start
+F.Intrinsic.Control.Try
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.UI.Msgbox("Transfer Labor to Payroll records will not be exported for Proliant. Are you sure you want to Cancel?", "Warning", 4, V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet, =, 6)
+	F.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.ElseIf(v.Local.iRet,=,7)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCancel_Click.End
+
+Program.Sub.cmdExport_Click.Start
+F.Intrinsic.Control.Try
+
+'invoke the wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Exporting Data...", "Please Wait")
+
+V.Global.sFQP.Set(V.Screen.f_Main!txtFileSave.Text)
+'call the sub to build out the file
+F.Intrinsic.Control.CallSub(BuildData)
+
+'call the sub to write to csv
+F.Intrinsic.Control.CallSub(WriteCSV)
+
+'close the wait dialog
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.UI.Msgbox("Export Complete!", "Success")
+Gui.f_Main.txtFileName.Text("")
+Gui.f_Main.txtFileSave.Text("")
+
+V.Global.sEnd.Set("Y")
+F.Intrinsic.Control.CallSub(Unload)
+
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdExport_Click.End
+
+Program.Sub.BuildData.Start
+F.Intrinsic.Control.Try
+V.Local.iCnt.Declare(Long)
+V.Local.dRunDate.Declare(Date)
+V.Local.dEndDate.Declare(Date)
+V.Local.fHours.Declare(Float)
+V.Local.fTotAmount.Declare(Float)
+V.Local.sEarningCode.Declare(String)
+V.Local.sEmployee.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSQL.Declare(String)
+V.Local.sInvHist.Declare(String)
+
+F.Intrinsic.Date.ConvertDString(V.Global.sDate, "YYYYMMDD", V.Local.dRunDate)
+V.Local.dRunDate.Set(V.Screen.f_Main!dtpBeg.Value)
+
+'build the datatable
+F.Data.DataTable.Create("dtPayroll", True)
+F.Data.DataTable.AddColumn("dtPayroll", "EMPLOYEE_ID", "STRING")
+F.Data.DataTable.AddColumn("dtPayroll", "TYPE", "STRING")
+F.Data.DataTable.AddColumn("dtPayroll", "CODES", "STRING")
+F.Data.DataTable.AddColumn("dtPayroll", "HOURS_WORKED", "FLOAT")
+F.Data.DataTable.AddColumn("dtPayroll", "TOTAL_AMOUNT", "FLOAT")
+
+'query PYRL_LABOR_XREF to get data
+F.Intrinsic.String.Build("SELECT EMPLOYEE, HOURS, TYPE, EC FROM V_PYRL_LABOR_XFER WHERE RUN_CYMD = '{0}' AND RUN_TIME = '{1}' ORDER BY EMPLOYEE", V.Local.dRunDate.PervasiveDate, V.Global.sTime, V.Local.sSQL)
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL, V.Local.sRet)
+
+'check to make sure results were returned
+F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"")
+	F.Data.DataTable.CreateFromString("dtTemp", V.Local.sRet, "EMPLOYEE_ID*!*HOURS*!*TYPE*!*EC", "STRING*!*FLOAT*!*STRING*!*STRING", "*!*","#$#",True)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.For(V.Local.iCnt,0, V.DataTable.dtTemp.RowCount--,1)
+	'Earnings Codes
+	'RT = 01Reg
+	'OT = 02OT
+	'DT = 03DT
+	F.Intrinsic.Control.SelectCase(V.DataTable.dtTemp(V.Local.iCnt).TYPE!FieldValTrim)
+	F.Intrinsic.Control.Case("RT")
+		F.Data.DataTable.SetValue("dtTemp", v.Local.iCnt, "TYPE", "01Reg")
+	F.Intrinsic.Control.Case("OT")
+		F.Data.DataTable.SetValue("dtTemp", v.Local.iCnt, "TYPE", "02Reg")
+	F.Intrinsic.Control.Case("DT")
+		F.Data.DataTable.SetValue("dtTemp", v.Local.iCnt, "TYPE", "03DT")
+	F.Intrinsic.Control.CaseElse
+		F.Data.DataTable.SetValue("dtTemp", v.Local.iCnt, "TYPE", V.DataTable.dtTemp(V.Local.iCnt).TYPE!FieldValTrim)
+	F.Intrinsic.Control.EndSelect
+	
+	F.Data.DataTable.AddRow("dtPayroll", "EMPLOYEE_ID", V.DataTable.dtTemp(V.Local.iCnt).EMPLOYEE_ID!FieldValTrim, "TYPE", "E", "CODES", V.DataTable.dtTemp(V.Local.iCnt).TYPE!FieldValTrim, "HOURS_WORKED", V.DataTable.dtTemp(V.Local.iCnt).HOURS!FieldValFloat, "TOTAL_AMOUNT", 0.00)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+'query inventory history to get the stand alone issue transactions (code_transaction = 'A50')
+
+F.Intrinsic.String.Build("SELECT TRANSACTION_DESC AS EMPLOYEE_ID, SUM(COST) AS AMT_CHARGED FROM V_INVENTORY_HIST WHERE CODE_TRANSACTION = 'A50' AND DATE_HISTORY >= '{0}' AND DATE_HISTORY <= '{1}' GROUP BY TRANSACTION_DESC", V.Global.dBegDate.PervasiveDate, V.Global.dEndDate.PervasiveDate, V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtTemp2", "con", V.Local.sSQL,True)
+
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtTemp2.RowCount--,1)
+	F.Data.DataTable.AddRow("dtPayroll", "EMPLOYEE_ID", V.DataTable.dtTemp2(V.Local.iCnt).EMPLOYEE_ID!FieldValTrim, "TYPE", "D", "CODES", "SmTools", "HOURS_WORKED", 0.00,"TOTAL_AMOUNT", V.DataTable.dtTemp2(V.Local.iCnt).AMT_CHARGED!FieldValFloat)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Intrinsic.Control.If(V.DataTable.dtTemp.Exists)
+	F.Data.DataTable.Close("dtTemp")
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.DataTable.dtTemp2.Exists)
+	F.Data.DataTable.Close("dtTemp2")
+F.Intrinsic.Control.EndIf
+
+'exit the sub
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.BuildData.End
+
+Program.Sub.WriteCSV.Start
+F.Intrinsic.Control.Try
+
+F.Intrinsic.Control.If(V.DataTable.dtPayroll.Exists)
+	F.Data.DataTable.SaveToCSV("dtPayroll",V.Global.sFQP, False)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Task.ShellExec(V.Caller.Handle, "open", V.Global.sFQP, "", "",1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.WriteCSV.End
+
+Program.Sub.cmdCommBrowse_Click.Start
+F.Intrinsic.Control.Try
+V.Local.sFileName.Declare(String)
+V.Local.sFileSaveLoc.Declare(String)
+
+F.Intrinsic.Control.If(V.Screen.f_Comms!txtFileName.Text,<>,"")
+	V.Local.sFileName.Set(V.Screen.f_Comms!txtFileName.Text)
+
+	F.Intrinsic.UI.ShowSaveFileDialog(V.Local.sFileName, "*.csv", V.Local.sFileSaveLoc)
+	F.Intrinsic.Control.If(V.Local.sFileSaveLoc,<>,"***CANCEL***")
+		Gui.f_Comms.txtFileSave.Text(V.Local.sFileSaveLoc.Trim)
+		V.Global.sFQP.Set(V.Local.sFileSaveLoc.Trim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("You must enter a File Name to continue.", "Required Field")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCommBrowse_Click.End
+
+Program.Sub.ExportCommissions.Start
+F.Intrinsic.Control.Try
+V.Local.iCnt.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+
+'build the datatable
+F.Data.DataTable.Create("dtComms", True)
+F.Data.DataTable.AddColumn("dtComms", "EMPLOYEE_ID", "STRING")
+F.Data.DataTable.AddColumn("dtComms", "TYPE", "STRING")
+F.Data.DataTable.AddColumn("dtComms", "CODES", "STRING")
+F.Data.DataTable.AddColumn("dtComms", "HOURS_WORKED", "FLOAT")
+F.Data.DataTable.AddColumn("dtComms", "TOTAL_AMOUNT", "FLOAT")
+
+F.Intrinsic.String.Build("SELECT  B.EMPLOYEE, SUM(A.SALES) AS SALES FROM V_BI_SALES_REP_COMM A LEFT JOIN V_EMPLOYEE_MSTR B ON RTRIM(LTRIM(A.SALSM_NAME)) = RTRIM(LTRIM(B.NAME)) WHERE A.TRMNL = '{0}' AND A.RPTID = '000564' GROUP BY EMPLOYEE", V.Caller.Terminal, V.Local.sSQL)
+F.Data.DataTable.CreateFromSQL("dtTemp", "con", V.Local.sSQL, True)
+F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtTemp.RowCount--,1)
+	F.Data.DataTable.AddRow("dtComms", "EMPLOYEE_ID", V.DataTable.dtTemp(V.Local.iCnt).EMPLOYEE!FieldValTrim, "TYPE", "E", "CODES", "Comm", "HOURS_WORKED", 0.00, "TOTAL_AMOUNT", V.DataTable.dtTemp(V.Local.iCnt).SALES!FieldValFloat)
+F.Intrinsic.Control.Next(V.Local.iCnt)
+
+F.Intrinsic.Control.If(V.DataTable.dtTemp.Exists)
+	F.Data.DataTable.Close("dtTemp")
+F.Intrinsic.Control.EndIf
+
+'create the csv
+F.Data.DataTable.SaveToCSV("dtComms", V.Global.sFQP, False)
+'open the new csv
+F.Intrinsic.Task.ShellExec(V.Caller.Handle, "open", V.Global.sFQP, "", "",1)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "f_Comms_UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.ExportCommissions.End
+
+Program.Sub.cmdCommCancel_Click.Start
+F.Intrinsic.Control.Try
+
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.UI.Msgbox("Sales Rep Commission records will not be exported for Proliant. Are you sure you want to Cancel?", "Warning", 4, V.Local.iRet)
+F.Intrinsic.Control.If(V.Local.iRet, =, 6)
+	F.Intrinsic.Control.CallSub(Unload)
+F.Intrinsic.Control.ElseIf(v.Local.iRet,=,7)
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "f_Comms_UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCommCancel_Click.End
+
+Program.Sub.cmdCommExport_Click.Start
+F.Intrinsic.Control.Try
+
+'invoke the wait dialog
+F.Intrinsic.UI.InvokeWaitDialog("Exporting Data...", "Please Wait")
+
+F.Intrinsic.Control.CallSub(ExportCommissions)
+
+'close the wait dialog
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.UI.Msgbox("Export Complete!", "Success")
+Gui.f_Comms.txtFileName.Text("")
+Gui.f_Comms.txtFileSave.Text("")
+
+V.Global.sEnd.Set("Y")
+F.Intrinsic.Control.CallSub(f_Comms_UnLoad)
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "f_Comms_UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCommExport_Click.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.Try
+
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.Control.If(V.Global.sEnd.Trim,=,"N")
+	F.Intrinsic.UI.Msgbox("Transfer Labor to Payroll records will not be exported for Proliant. Are you sure you want to Cancel?", "Warning", 4, V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet, =, 6)
+		'close the connection to the database
+		F.ODBC.Connection!con.Close
+
+		'end the script
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(v.Local.iRet,=,7)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Global.sEnd.Trim,=,"Y")
+	'close the connection to the database
+	F.ODBC.Connection!con.Close
+
+	'end the script
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.Unload.End
+
+Program.Sub.f_Comms_UnLoad.Start
+F.Intrinsic.Control.Try
+
+V.Local.iRet.Declare(Long)
+
+F.Intrinsic.Control.If(V.Global.sEnd.Trim,=,"N")
+	F.Intrinsic.UI.Msgbox("Sales Rep Commission records will not be exported for Proliant. Are you sure you want to Cancel?", "Warning", 4, V.Local.iRet)
+	F.Intrinsic.Control.If(V.Local.iRet, =, 6)
+		'close the connection to the database
+		F.ODBC.Connection!con.Close
+
+		'end the script
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.ElseIf(v.Local.iRet,=,7)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Global.sEnd.Trim,=,"Y")
+	'close the connection to the database
+	F.ODBC.Connection!con.Close
+
+	'end the script
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	V.Global.sEnd.Set("Y")
+	F.Intrinsic.Control.CallSub(ErrorMessage, "ErrorNumber", V.Ambient.ErrorNumber, "ErrorDescription", V.Ambient.ErrorDescription, "Subroutine", V.Ambient.CurrentSubroutine, "UNATTENDED", V.Global.bUnattended, "Project", "6377", "ProjectTitle", "Proliant Export", "Callback", "f_Comms_UnLoad")
+F.Intrinsic.Control.EndTry
+Program.Sub.f_Comms_UnLoad.End
+
+Program.Sub.ErrorMessage.Start
+'basic error message for replacing catch block
+'this is really just for when printing the message and ending program
+'pass error number, error description, current subroutine
+'optional callback sub, this will be called before ending
+'optional unattended parameters, those subs may not exist if not using them but won't be called
+F.Intrinsic.Control.Try
+
+V.Local.iError.Declare(Long)
+V.Local.sErrorDescription.Declare(String)
+V.Local.sSubroutine.Declare(String)
+V.Local.sError.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sCallback.Declare(String)
+
+V.Local.iError.Set(V.Args.ErrorNumber)
+V.Local.sErrorDescription.Set(V.Args.ErrorDescription)
+V.Local.sSubroutine.Set(V.Args.Subroutine)
+
+'make sure we aren't in an error loop
+F.Intrinsic.Control.If(V.Global.bError)
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndIf
+V.Global.bError.Set(True)
+
+F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}", V.Caller.ScriptFile, V.Ambient.Newline, V.Local.sSubroutine, V.Local.iError, V.Local.sErrorDescription, V.Ambient.GABVersion, V.Local.sError)
+
+F.Intrinsic.Variable.ArgExists("UNATTENDED", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	F.Intrinsic.Control.If(V.Args.UNATTENDED)
+		F.Intrinsic.Control.CallSub(UnattendedErrorMessage, "MESSAGE", V.Local.sError, "PROJECT", V.Args.PROJECT, "PROJECTTITLE", V.Args.PROJECTTITLE)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.ArgExists("Callback", V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists)
+	V.Local.sCallback.Set(V.Args.Callback.Trim)
+	F.Intrinsic.Control.CallSub(V.Local.sCallback)
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Caller.ScriptFile,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.EndTry
+Program.Sub.ErrorMessage.End
+
+Program.Sub.Comments.Start
+${$5$}$3.0.0.0$}$1
+${$6$}$acollins$}$20210607093720422$}$h98hERc2yV72q0GaUGlwSaoK/aefTdVkB5SGxLdVwE+2Xvi/4kR4zzzsC0kjXP/s5CWByP1O40wfnIxxhSCSow==
+Program.Sub.Comments.End
